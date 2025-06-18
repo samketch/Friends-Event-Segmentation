@@ -262,7 +262,13 @@ Remember, an event boundary occurs where you perceive one event finishes and ano
 
     expClock = core.Clock()
 
-    boundary_times = [] #initialize event segmentation list
+    #boundary_times = [] #initialize event segmentation list
+    event_seg_path = os.path.join(
+    os.path.dirname(os.path.abspath(__file__)),"..", "event_seg", f"{participant_id}_{filename[1].split('/')[-1].split('.')[0]}_{seed}_{datetime.now().strftime('%Y_%m_%d-%p%I_%M_%S')}_boundaries.csv")
+    os.makedirs(os.path.dirname(event_seg_path), exist_ok=True)
+    with open(event_seg_path, "w", newline="") as f:
+        writer = csv.writer(f)
+        writer.writerow(["ParticipantID", "VideoName", "BoundaryTime(s)"])
     
     timelimit = trialsplit[0]
     #trialsplit = trialsplit
@@ -309,12 +315,14 @@ Remember, an event boundary occurs where you perceive one event finishes and ano
             keys = event.getKeys(timeStamped=expClock)
             for key, timestamp in keys:
                 if key == 'space':
-                    boundary_times.append(round(timestamp, 3))
+                    with open(event_seg_path, "a", newline="") as f:
+                        writer = csv.writer(f)
+                        writer.writerow([participant_id, videoname, timestamp])
         else:
             break
 
     #at the end of each clip, present comprehension questions
-    if filename[1] == "resources/Movie_Task/videos/prestige.mp4":
+    if filename[1] == "resources/Movie_Task/videos/friends1.mp4":
         base_name = os.path.splitext(os.path.basename(filename[1]))[0]
         clipname = base_name.split('.')[0]
         responses_data = present_comprehension_question(win, stim, 1, participant_id, videoname, responses_data)
@@ -322,11 +330,11 @@ Remember, an event boundary occurs where you perceive one event finishes and ano
         responses_data = present_comprehension_question(win, stim, 3, participant_id, videoname, responses_data)
         responses_data = present_comprehension_question(win, stim, 4, participant_id, videoname, responses_data)
         save_comp_csv(responses_data, participant_id, clipname, seed)
-        seen_data = present_seen_question(win, stim, 33, participant_id, videoname, seen_data)
+        seen_data = present_seen_question(win, stim, 17, participant_id, videoname, seen_data)
         save_seen_csv(seen_data, participant_id, clipname, seed)
         #core.quit() #use this to debug
 
-    if filename[1] == "resources/Movie_Task/videos/pulpFiction.mp4":
+    if filename[1] == "resources/Movie_Task/videos/friends2.mp4":
         base_name = os.path.splitext(os.path.basename(filename[1]))[0]
         clipname = base_name.split('.')[0]
         responses_data = present_comprehension_question(win, stim, 5, participant_id, videoname, responses_data)
@@ -334,10 +342,10 @@ Remember, an event boundary occurs where you perceive one event finishes and ano
         responses_data = present_comprehension_question(win, stim, 7, participant_id, videoname, responses_data)
         responses_data = present_comprehension_question(win, stim, 8, participant_id, videoname, responses_data)
         save_comp_csv(responses_data, participant_id, clipname, seed)
-        seen_data = present_seen_question(win, stim, 34, participant_id, videoname, seen_data)
+        seen_data = present_seen_question(win, stim, 18, participant_id, videoname, seen_data)
         save_seen_csv(seen_data, participant_id, clipname, seed)
     
-    if filename[1] == "resources/Movie_Task/videos/shawshank.mp4":
+    if filename[1] == "resources/Movie_Task/videos/friends3.mp4":
         base_name = os.path.splitext(os.path.basename(filename[1]))[0]
         clipname = base_name.split('.')[0]
         responses_data = present_comprehension_question(win, stim, 9, participant_id, videoname, responses_data)
@@ -345,10 +353,10 @@ Remember, an event boundary occurs where you perceive one event finishes and ano
         responses_data = present_comprehension_question(win, stim, 11, participant_id, videoname, responses_data)
         responses_data = present_comprehension_question(win, stim, 12, participant_id, videoname, responses_data)
         save_comp_csv(responses_data, participant_id, clipname, seed)
-        seen_data = present_seen_question(win, stim, 35, participant_id, videoname, seen_data)
+        seen_data = present_seen_question(win, stim, 19, participant_id, videoname, seen_data)
         save_seen_csv(seen_data, participant_id, clipname, seed)
     
-    if filename[1] == "resources/Movie_Task/videos/backToFuture.mp4":
+    if filename[1] == "resources/Movie_Task/videos/friends4.mp4":
         base_name = os.path.splitext(os.path.basename(filename[1]))[0]
         clipname = base_name.split('.')[0]
         responses_data = present_comprehension_question(win, stim, 13, participant_id, videoname, responses_data)
@@ -356,97 +364,35 @@ Remember, an event boundary occurs where you perceive one event finishes and ano
         responses_data = present_comprehension_question(win, stim, 15, participant_id, videoname, responses_data)
         responses_data = present_comprehension_question(win, stim, 16, participant_id, videoname, responses_data)
         save_comp_csv(responses_data, participant_id, clipname, seed)
-        seen_data = present_seen_question(win, stim, 36, participant_id, videoname, seen_data)
-        save_seen_csv(seen_data, participant_id, clipname, seed)
-
-    if filename[1] == "resources/Movie_Task/videos/12_years.mp4":
-        base_name = os.path.splitext(os.path.basename(filename[1]))[0]
-        clipname = base_name.split('.')[0]
-        responses_data = present_comprehension_question(win, stim, 17, participant_id, videoname, responses_data)
-        responses_data = present_comprehension_question(win, stim, 18, participant_id, videoname, responses_data)
-        responses_data = present_comprehension_question(win, stim, 19, participant_id, videoname, responses_data)
-        responses_data = present_comprehension_question(win, stim, 20, participant_id, videoname, responses_data)
-        save_comp_csv(responses_data, participant_id, clipname, seed)
-        seen_data = present_seen_question(win, stim, 37, participant_id, videoname, seen_data)
-        save_seen_csv(seen_data, participant_id, clipname, seed)
-    
-    if filename[1] == "resources/Movie_Task/videos/lms.mp4":
-        base_name = os.path.splitext(os.path.basename(filename[1]))[0]
-        clipname = base_name.split('.')[0]
-        responses_data = present_comprehension_question(win, stim, 21, participant_id, videoname, responses_data)
-        responses_data = present_comprehension_question(win, stim, 22, participant_id, videoname, responses_data)
-        responses_data = present_comprehension_question(win, stim, 23, participant_id, videoname, responses_data)
-        responses_data = present_comprehension_question(win, stim, 24, participant_id, videoname, responses_data)
-        save_comp_csv(responses_data, participant_id, clipname, seed)
-        seen_data = present_seen_question(win, stim, 38, participant_id, videoname, seen_data)
-        save_seen_csv(seen_data, participant_id, clipname, seed)
-
-    if filename[1] == "resources/Movie_Task/videos/c4.mp4":
-        base_name = os.path.splitext(os.path.basename(filename[1]))[0]
-        clipname = base_name.split('.')[0]
-        responses_data = present_comprehension_question(win, stim, 25, participant_id, videoname, responses_data)
-        responses_data = present_comprehension_question(win, stim, 26, participant_id, videoname, responses_data)
-        responses_data = present_comprehension_question(win, stim, 27, participant_id, videoname, responses_data)
-        responses_data = present_comprehension_question(win, stim, 28, participant_id, videoname, responses_data)
-        save_comp_csv(responses_data, participant_id, clipname, seed)
-        seen_data = present_seen_question(win, stim, 39, participant_id, videoname, seen_data)
-        save_seen_csv(seen_data, participant_id, clipname, seed)
-    
-    if filename[1] == "resources/Movie_Task/videos/500Days.mp4":
-        base_name = os.path.splitext(os.path.basename(filename[1]))[0]
-        clipname = base_name.split('.')[0]
-        responses_data = present_comprehension_question(win, stim, 29, participant_id, videoname, responses_data)
-        responses_data = present_comprehension_question(win, stim, 30, participant_id, videoname, responses_data)
-        responses_data = present_comprehension_question(win, stim, 31, participant_id, videoname, responses_data)
-        responses_data = present_comprehension_question(win, stim, 32, participant_id, videoname, responses_data)
-        save_comp_csv(responses_data, participant_id, clipname, seed)
-        seen_data = present_seen_question(win, stim, 40, participant_id, videoname, seen_data)
+        seen_data = present_seen_question(win, stim, 20, participant_id, videoname, seen_data)
         save_seen_csv(seen_data, participant_id, clipname, seed)
     
     # Save event segmentation data
     event_seg_dir = os.path.join(os.path.dirname(os.path.abspath(__file__)), "..", "event_seg")
     os.makedirs(event_seg_dir, exist_ok=True)
 
-    if filename[1] == "resources/Movie_Task/videos/prestige.mp4":
-        base_name = os.path.splitext(os.path.basename(filename[1]))[0]
-        clipname = base_name.split('.')[0]
+    #if filename[1] == "resources/Movie_Task/videos/friends1.mp4":
+        #base_name = os.path.splitext(os.path.basename(filename[1]))[0]
+        #clipname = base_name.split('.')[0]
         # Save event boundary data
-        save_eventseg_csv(boundary_times, participant_id, clipname, seed)
+        #save_eventseg_csv(boundary_times, participant_id, clipname, seed)
 
-    if filename[1] == "resources/Movie_Task/videos/pulpFiction.mp4":
-        base_name = os.path.splitext(os.path.basename(filename[1]))[0]
-        clipname = base_name.split('.')[0]
-        save_eventseg_csv(boundary_times, participant_id, clipname, seed)
+    #if filename[1] == "resources/Movie_Task/videos/friends2.mp4":
+        #base_name = os.path.splitext(os.path.basename(filename[1]))[0]
+        #clipname = base_name.split('.')[0]
+        #save_eventseg_csv(boundary_times, participant_id, clipname, seed)
 
-    if filename[1] == "resources/Movie_Task/videos/shawshank.mp4":
-        base_name = os.path.splitext(os.path.basename(filename[1]))[0]
-        clipname = base_name.split('.')[0]
-        save_eventseg_csv(boundary_times, participant_id, clipname, seed)
+    #if filename[1] == "resources/Movie_Task/videos/friends3.mp4":
+        #base_name = os.path.splitext(os.path.basename(filename[1]))[0]
+        #clipname = base_name.split('.')[0]
+        #save_eventseg_csv(boundary_times, participant_id, clipname, seed)
 
-    if filename[1] == "resources/Movie_Task/videos/backToFuture.mp4":
-        base_name = os.path.splitext(os.path.basename(filename[1]))[0]
-        clipname = base_name.split('.')[0]
-        save_eventseg_csv(boundary_times, participant_id, clipname, seed)
-    
-    if filename[1] == "resources/Movie_Task/videos/12_years.mp4":
-        base_name = os.path.splitext(os.path.basename(filename[1]))[0]
-        clipname = base_name.split('.')[0]
-        save_eventseg_csv(boundary_times, participant_id, clipname, seed)
-    
-    if filename[1] == "resources/Movie_Task/videos/lms.mp4":
-        base_name = os.path.splitext(os.path.basename(filename[1]))[0]
-        clipname = base_name.split('.')[0]
-        save_eventseg_csv(boundary_times, participant_id, clipname, seed)
-    
-    if filename[1] == "resources/Movie_Task/videos/c4.mp4":
-        base_name = os.path.splitext(os.path.basename(filename[1]))[0]
-        clipname = base_name.split('.')[0]
-        save_eventseg_csv(boundary_times, participant_id, clipname, seed)
-    
-    if filename[1] == "resources/Movie_Task/videos/500Days.mp4":
-        base_name = os.path.splitext(os.path.basename(filename[1]))[0]
-        clipname = base_name.split('.')[0]
-        save_eventseg_csv(boundary_times, participant_id, clipname, seed)
+    #if filename[1] == "resources/Movie_Task/videos/friends4.mp4":
+        #base_name = os.path.splitext(os.path.basename(filename[1]))[0]
+        #clipname = base_name.split('.')[0]
+        #save_eventseg_csv(boundary_times, participant_id, clipname, seed)
+ 
+
 
 
 
@@ -502,6 +448,7 @@ Remember, an event boundary occurs where you perceive one event finishes and ano
         practice_mov = visual.MovieStim3(win, practice_video_path, size=(1920, 1080), flipVert=False, flipHoriz=False, loop=False)
         clock = core.Clock()
         boundaries = []
+        
 
         while practice_mov.status != visual.FINISHED:
             practice_mov.draw()
