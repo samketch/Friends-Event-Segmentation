@@ -22,6 +22,7 @@ from psychopy import prefs
 def save_comp_csv(responses_data, participant_id, clipname, seed):
     current_directory = os.path.dirname(os.path.abspath(__file__))
     log_folder = os.path.join(current_directory, "..", "comp_file")
+    os.makedirs(log_folder, exist_ok=True)
 
     current_datetime = datetime.now().strftime("%Y_%m_%d-%p%I_%M_%S")
         
@@ -36,6 +37,7 @@ def save_comp_csv(responses_data, participant_id, clipname, seed):
 def present_comprehension_question(win, stim, question_number, participant_id, videoname, responses_data):
     current_directory = os.path.dirname(os.path.abspath(__file__))
     questions_file_path = os.path.join(current_directory, "resources", "Movie_Task", "csv", "comprehension_questions.csv")
+    
      
     with open(questions_file_path, "r", encoding="utf-8") as f:
         for lineno, line in enumerate(f, 1):
@@ -43,7 +45,7 @@ def present_comprehension_question(win, stim, question_number, participant_id, v
                 print(f"Line {lineno}: {line.strip()}")
 
     # Load questions from the CSV file
-    with open(questions_file_path, 'r', errors='replace') as csv_file:
+    with open(questions_file_path, 'r', encoding ="utf-8") as csv_file:
         csv_reader = csv.DictReader(csv_file)
         questions = list(csv_reader)
 
@@ -85,7 +87,7 @@ def present_seen_question(win, stim, question_number, participant_id, videoname,
                 print(f"Line {lineno}: {line.strip()}")
 
     # Load questions from the CSV file
-    with open(questions_file_path, 'r', errors='replace') as csv_file:
+    with open(questions_file_path, 'r', encoding = "utf-8") as csv_file:
         csv_reader = csv.DictReader(csv_file)
         questions = list(csv_reader)
     
@@ -212,7 +214,7 @@ Remember, an event boundary occurs where you perceive one event finishes and ano
     #win.flip()
     
     # Wait for user to press enter to continue. 
-    event.waitKeys(keyList=(['return']))
+    #event.waitKeys(keyList=(['return']))
     
     
     # Create two lists, one with the control videos, and one with action videos
@@ -288,11 +290,11 @@ Remember, an event boundary occurs where you perceive one event finishes and ano
                     timelimit = 10000
                     pass
                 en += 1
-                mov.pause()
-                timepause = runtime - expClock.getTime()
+                #mov.pause()
+                #timepause = runtime - expClock.getTime()
                 #ESQ.runexp(None,timer,win,[writer,writera],resdict,None,None,None,movietype=trialname) 
-                text_inst.draw()
-                win.flip()
+                #text_inst.draw()
+                #win.flip()
                 #mov.draw()
                 writera.writerow({'Timepoint':'EXPERIMENT DATA:','Time':'Experience Sampling Questions'})
                 writera.writerow({'Timepoint':'Start Time','Time':timer.getTime()})
@@ -301,7 +303,7 @@ Remember, an event boundary occurs where you perceive one event finishes and ano
                 writer.writerow(resdict)
                 resdict['Timepoint'], resdict['Time'],resdict['Auxillary Data'] = None,None,None
                 #win.flip()
-                mov.play()
+                #mov.play()
                 resettime = True
                 
                 #runtime = timepause
