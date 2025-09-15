@@ -73,7 +73,7 @@ class taskbattery(metadatacollection):
                 taskbattery.ESQtask = ESQtask
                 self.INFO = INFO
                 self.taskexeclist = []
-                self.win = visual.Window(size=(1440, 960),color='white',fullscr=False)
+                self.win = visual.Window(size=(1440, 960),color='white',fullscr=True)
                 self.text = text_2 = visual.TextStim(win=self.win, name='text_2',
                         text='Welcome to our experiment. \n Please follow the instructions on-screen and notify the attending researcher if anything is unclear \n We are thankful for your participation. \n Press <return/enter> to continue.',
                         font='Arial',
@@ -393,11 +393,11 @@ if __name__ == "__main__":
         movieTask1 = task(eventSegmentation, datafile, ["resources/Movie_Task/csv/probetimes_orders.csv","resources/Movie_Task/videos/friends1.mp4"],"Event Segmentation Task",  metacoll.sbINFO.data, int(metacoll.INFO['Block Runtime']),'resources//Movie_Task//csv//sorted_filmList.csv', 1,1)
         movieTask2 = task(eventSegmentation, datafile, ["resources/Movie_Task/csv/probetimes_orders.csv","resources/Movie_Task/videos/friends2.mp4"],"Event Segmentation Task",  metacoll.sbINFO.data, int(metacoll.INFO['Block Runtime']),'resources//Movie_Task//csv//sorted_filmList.csv', 2,1)
         movieTask3 = task(eventSegmentation, datafile, ["resources/Movie_Task/csv/probetimes_orders.csv","resources/Movie_Task/videos/friends3.mp4"],"Event Segmentation Task",  metacoll.sbINFO.data, int(metacoll.INFO['Block Runtime']),'resources//Movie_Task//csv//sorted_filmList.csv', 3,1)
-        movieTask4 = task(eventSegmentation, datafile, ["resources/Movie_Task/csv/probetimes_orders.csv","resources/Movie_Task/videos/friends4.mp4"],"Event Segmentation Task",  metacoll.sbINFO.data, int(metacoll.INFO['Block Runtime']),'resources//Movie_Task//csv//sorted_filmList.csv', 4,1)
+        #movieTask4 = task(eventSegmentation, datafile, ["resources/Movie_Task/csv/probetimes_orders.csv","resources/Movie_Task/videos/friends4.mp4"],"Event Segmentation Task",  metacoll.sbINFO.data, int(metacoll.INFO['Block Runtime']),'resources//Movie_Task//csv//sorted_filmList.csv', 4,1)
 
         #moviegroup = [movieTask1,movieTask2,movieTask3]
 
-        moviegroup = [movieTask1, movieTask2, movieTask3, movieTask4]
+        moviegroup = [movieTask1, movieTask2, movieTask3]
         #random.shuffle(moviegroup) #just trying to shuffle the video clips 
         
         movie_main = taskgroup([moviegroup],"resources/group_inst/movie_main.txt")
