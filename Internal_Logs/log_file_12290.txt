@@ -1,0 +1,7 @@
+pygame 2.6.1 (SDL 2.28.4, Python 3.6.13)
+Hello from the pygame community. https://www.pygame.org/contribute.html
+[6118534, '1231231']
+Now initializing Event Segmentation Task
+Now setting up Event Segmentation Task
+Now running Event Segmentation Task
+8.8012 	WARNING 	Monitor specification not found. Creating a temporary one...
