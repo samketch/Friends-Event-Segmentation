@@ -1,0 +1,50 @@
+pygame 2.1.2 (SDL 2.0.18, Python 3.6.13)
+Hello from the pygame community. https://www.pygame.org/contribute.html
+[9796385, '003']
+Now initializing Event Segmentation Task
+Now setting up Event Segmentation Task
+Now running Event Segmentation Task
+Now initializing Event Segmentation Task
+Now setting up Event Segmentation Task
+Now running Event Segmentation Task
+Now initializing Event Segmentation Task
+Now setting up Event Segmentation Task
+Now running Event Segmentation Task
+Success
+6.3547 	WARNING 	Monitor specification not found. Creating a temporary one...
+6.3598 	WARNING 	User requested fullscreen with size [1440  960], but screen is actually [2560, 1440]. Using actual size
+34.1554 	WARNING 	Speech-to-text recognition module not available (use command `pip install SpeechRecognition` to get it. Transcription will be unavailable.
+34.2009 	WARNING 	We strongly recommend you activate the PTB sound engine in PsychoPy prefs as the preferred audio engine. Its timing is vastly superior. Your prefs are currently set to use ['sounddevice', 'pyo', 'pygame'] (in that order).
+324.4852 	WARNING 	208.03305136645213: Video catchup needed, advancing self._nextFrameT from 207.9160416666623 to 207.95774999999563
+684.5658 	WARNING 	568.1136165666394: Video catchup needed, advancing self._nextFrameT from 567.9840833334567 to 568.02579166679
+684.5660 	WARNING 	568.1138913664035: Video catchup needed, advancing self._nextFrameT from 568.02579166679 to 568.0675000001233
+684.6459 	WARNING 	568.1937349666841: Video catchup needed, advancing self._nextFrameT from 568.1092083334566 to 568.15091666679
+864.5000 	WARNING 	748.0478640664369: Video catchup needed, advancing self._nextFrameT from 747.9138333333299 to 747.9555416666632
+864.5001 	WARNING 	748.0479346667416: Video catchup needed, advancing self._nextFrameT from 747.9555416666632 to 747.9972499999965
+864.6563 	WARNING 	748.204145366326: Video catchup needed, advancing self._nextFrameT from 748.0389583333298 to 748.0806666666631
+864.6563 	WARNING 	748.2041764664464: Video catchup needed, advancing self._nextFrameT from 748.0806666666631 to 748.1223749999964
+1044.5412 	WARNING 	928.0890638665296: Video catchup needed, advancing self._nextFrameT from 927.9687083332029 to 928.0104166665362
+1044.7002 	WARNING 	928.2479948666878: Video catchup needed, advancing self._nextFrameT from 928.0521249998695 to 928.0938333332028
+1044.7002 	WARNING 	Max reportNDroppedFrames reached, will not log any more dropped frames
+1644.7608 	WARNING 	146.92182176653296: Video catchup needed, advancing self._nextFrameT from 146.8133333333304 to 146.85504166666374
+1764.6010 	WARNING 	266.76201146654785: Video catchup needed, advancing self._nextFrameT from 266.6413750000015 to 266.6830833333349
+1764.7565 	WARNING 	266.9175240667537: Video catchup needed, advancing self._nextFrameT from 266.72479166666824 to 266.7665000000016
+1764.7565 	WARNING 	266.91756366658956: Video catchup needed, advancing self._nextFrameT from 266.7665000000016 to 266.80820833333496
+1764.7565 	WARNING 	266.9175826665014: Video catchup needed, advancing self._nextFrameT from 266.80820833333496 to 266.8499166666683
+2004.7308 	WARNING 	506.89183746650815: Video catchup needed, advancing self._nextFrameT from 506.79795833349283 to 506.8396666668262
+2004.8149 	WARNING 	506.9758973666467: Video catchup needed, advancing self._nextFrameT from 506.88137500015955 to 506.9230833334929
+2184.7368 	WARNING 	686.897784366738: Video catchup needed, advancing self._nextFrameT from 686.7694166667063 to 686.8111250000396
+2184.7369 	WARNING 	686.897901466582: Video catchup needed, advancing self._nextFrameT from 686.8111250000396 to 686.8528333333729
+2484.7672 	WARNING 	986.9282115665264: Video catchup needed, advancing self._nextFrameT from 986.8191666664948 to 986.8608749998281
+2484.7672 	WARNING 	Max reportNDroppedFrames reached, will not log any more dropped frames
+2904.7285 	WARNING 	39.488578266929835: Video catchup needed, advancing self._nextFrameT from 39.28924999999959 to 39.33095833333292
+2904.7285 	WARNING 	39.488669166807085: Video catchup needed, advancing self._nextFrameT from 39.33095833333292 to 39.372666666666255
+2904.7286 	WARNING 	39.48871526680887: Video catchup needed, advancing self._nextFrameT from 39.372666666666255 to 39.41437499999959
+2904.8529 	WARNING 	39.61299356678501: Video catchup needed, advancing self._nextFrameT from 39.45608333333292 to 39.49779166666625
+2904.8530 	WARNING 	39.6131063667126: Video catchup needed, advancing self._nextFrameT from 39.49779166666625 to 39.539499999999585
+3144.7585 	WARNING 	279.5185827668756: Video catchup needed, advancing self._nextFrameT from 279.4041250000099 to 279.4458333333433
+3144.8392 	WARNING 	279.59927306650206: Video catchup needed, advancing self._nextFrameT from 279.48754166667663 to 279.52925000001
+3744.6209 	WARNING 	879.3810646669008: Video catchup needed, advancing self._nextFrameT from 879.2533749999039 to 879.2950833332372
+3744.6210 	WARNING 	879.3811156665906: Video catchup needed, advancing self._nextFrameT from 879.2950833332372 to 879.3367916665705
+3744.7669 	WARNING 	879.5269880667329: Video catchup needed, advancing self._nextFrameT from 879.3784999999039 to 879.4202083332372
+3744.7669 	WARNING 	Max reportNDroppedFrames reached, will not log any more dropped frames
