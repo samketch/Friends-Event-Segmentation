@@ -1,0 +1,32 @@
+pygame 2.1.2 (SDL 2.0.18, Python 3.6.13)
+Hello from the pygame community. https://www.pygame.org/contribute.html
+[9845184, '006']
+Now initializing Event Segmentation Task
+Now setting up Event Segmentation Task
+Now running Event Segmentation Task
+Now initializing Event Segmentation Task
+Now setting up Event Segmentation Task
+Now running Event Segmentation Task
+Now initializing Event Segmentation Task
+Now setting up Event Segmentation Task
+Now running Event Segmentation Task
+Success
+10.7827 	WARNING 	Monitor specification not found. Creating a temporary one...
+10.7878 	WARNING 	User requested fullscreen with size [1440  960], but screen is actually [2560, 1440]. Using actual size
+75.3778 	WARNING 	Speech-to-text recognition module not available (use command `pip install SpeechRecognition` to get it. Transcription will be unavailable.
+75.4245 	WARNING 	We strongly recommend you activate the PTB sound engine in PsychoPy prefs as the preferred audio engine. Its timing is vastly superior. Your prefs are currently set to use ['sounddevice', 'pyo', 'pygame'] (in that order).
+816.2244 	WARNING 	652.4894529666635: Video catchup needed, advancing self._nextFrameT from 652.4017500000639 to 652.4434583333972
+1056.1139 	WARNING 	892.3789220666658: Video catchup needed, advancing self._nextFrameT from 892.2663749998948 to 892.3080833332281
+1416.2449 	WARNING 	1252.509941166667: Video catchup needed, advancing self._nextFrameT from 1252.3761250002633 to 1252.4178333335967
+1416.2450 	WARNING 	1252.5100551666656: Video catchup needed, advancing self._nextFrameT from 1252.4178333335967 to 1252.4595416669301
+2496.1107 	WARNING 	914.5405829666634: Video catchup needed, advancing self._nextFrameT from 914.4552083332125 to 914.4969166665458
+2616.2493 	WARNING 	1034.6791877666692: Video catchup needed, advancing self._nextFrameT from 1034.5752083331565 to 1034.61691666649
+2616.3394 	WARNING 	1034.7693033666656: Video catchup needed, advancing self._nextFrameT from 1034.6586249998234 to 1034.7003333331568
+2736.1181 	WARNING 	1154.5480305666642: Video catchup needed, advancing self._nextFrameT from 1154.4449583333987 to 1154.4866666667322
+2856.2825 	WARNING 	1274.7124788666697: Video catchup needed, advancing self._nextFrameT from 1274.606666666975 to 1274.6483750003083
+3036.1405 	WARNING 	77.59715766667068: Video catchup needed, advancing self._nextFrameT from 77.49408333333203 to 77.53579166666536
+3276.1142 	WARNING 	317.57085536667: Video catchup needed, advancing self._nextFrameT from 317.4838333333683 to 317.52554166670166
+4116.2410 	WARNING 	1157.6975976666727: Video catchup needed, advancing self._nextFrameT from 1157.573083333405 to 1157.6147916667385
+4116.3171 	WARNING 	1157.7737835666703: Video catchup needed, advancing self._nextFrameT from 1157.656500000072 to 1157.6982083334053
+4236.2337 	WARNING 	1277.6903233666744: Video catchup needed, advancing self._nextFrameT from 1277.5679583336475 to 1277.609666666981
+4236.3117 	WARNING 	1277.7683706666721: Video catchup needed, advancing self._nextFrameT from 1277.6513750003144 to 1277.6930833336478
