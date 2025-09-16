@@ -1,4 +1,3 @@
-#Written by Brontë McKeown and Theodoros Karapanagiotidis
 #This is an edited version of the movieTask script that runs an event segmentation task.
 from psychopy import visual 
 import psychopy
@@ -17,12 +16,12 @@ from datetime import datetime
 from psychopy import prefs
 
 
-
 ###################################################################################################
 
 def save_comp_csv(responses_data, participant_id, clipname, seed):
     current_directory = os.path.dirname(os.path.abspath(__file__))
     log_folder = os.path.join(current_directory, "..", "comp_file")
+    os.makedirs(log_folder, exist_ok=True)
 
     current_datetime = datetime.now().strftime("%Y_%m_%d-%p%I_%M_%S")
         
@@ -37,6 +36,7 @@ def save_comp_csv(responses_data, participant_id, clipname, seed):
 def present_comprehension_question(win, stim, question_number, participant_id, videoname, responses_data):
     current_directory = os.path.dirname(os.path.abspath(__file__))
     questions_file_path = os.path.join(current_directory, "resources", "Movie_Task", "csv", "comprehension_questions.csv")
+    
      
     with open(questions_file_path, "r", encoding="utf-8") as f:
         for lineno, line in enumerate(f, 1):
@@ -44,7 +44,7 @@ def present_comprehension_question(win, stim, question_number, participant_id, v
                 print(f"Line {lineno}: {line.strip()}")
 
     # Load questions from the CSV file
-    with open(questions_file_path, 'r', errors='replace') as csv_file:
+    with open(questions_file_path, 'r', encoding ="utf-8") as csv_file:
         csv_reader = csv.DictReader(csv_file)
         questions = list(csv_reader)
 
@@ -86,7 +86,7 @@ def present_seen_question(win, stim, question_number, participant_id, videoname,
                 print(f"Line {lineno}: {line.strip()}")
 
     # Load questions from the CSV file
-    with open(questions_file_path, 'r', errors='replace') as csv_file:
+    with open(questions_file_path, 'r', encoding = "utf-8") as csv_file:
         csv_reader = csv.DictReader(csv_file)
         questions = list(csv_reader)
     
@@ -164,6 +164,7 @@ def save_eventseg_csv(boundary_times, participant_id, clipname, seed):
     with open(csv_path, "w", newline="") as csvfile:
         writer = csv.writer(csvfile)
         writer.writerow(["ParticipantID", "VideoName", "BoundaryTime(s)"])
+        boundary_times = sorted(boundary_times)
         for t in boundary_times:
             writer.writerow([participant_id, clipname, t])
 
@@ -212,7 +213,7 @@ Remember, an event boundary occurs where you perceive one event finishes and ano
     #win.flip()
     
     # Wait for user to press enter to continue. 
-    event.waitKeys(keyList=(['return']))
+    #event.waitKeys(keyList=(['return']))
     
     
     # Create two lists, one with the control videos, and one with action videos
@@ -261,8 +262,15 @@ Remember, an event boundary occurs where you perceive one event finishes and ano
 
 
     expClock = core.Clock()
+    movieClock = core.Clock()
 
-    boundary_times = [] #initialize event segmentation list
+    #boundary_times = [] #initialize event segmentation list
+    event_seg_path = os.path.join(
+    os.path.dirname(os.path.abspath(__file__)),"..", "event_seg", f"{participant_id}_{filename[1].split('/')[-1].split('.')[0]}_{seed}_{datetime.now().strftime('%Y_%m_%d-%p%I_%M_%S')}_boundaries.csv")
+    os.makedirs(os.path.dirname(event_seg_path), exist_ok=True)
+    with open(event_seg_path, "w", newline="") as f:
+        writer = csv.writer(f)
+        writer.writerow(["ParticipantID", "VideoName", "BoundaryTime(s)"])
     
     timelimit = trialsplit[0]
     #trialsplit = trialsplit
@@ -281,21 +289,21 @@ Remember, an event boundary occurs where you perceive one event finishes and ano
                 except:
                     timelimit = 10000
                     pass
-                en += 1
-                mov.pause()
-                timepause = runtime - expClock.getTime()
-                ESQ.runexp(None,timer,win,[writer,writera],resdict,None,None,None,movietype=trialname) 
-                text_inst.draw()
-                win.flip()
-                #mov.draw()
-                writera.writerow({'Timepoint':'EXPERIMENT DATA:','Time':'Experience Sampling Questions'})
-                writera.writerow({'Timepoint':'Start Time','Time':timer.getTime()})
-                resdict['Assoc Task'] = None
-                resdict['Timepoint'], resdict['Time'],resdict['Auxillary Data'] = 'Movie prompt {} {}'.format(en,videoname), timer.getTime(), timelimitpercent
-                writer.writerow(resdict)
-                resdict['Timepoint'], resdict['Time'],resdict['Auxillary Data'] = None,None,None
+                #en += 1
+                #mov.pause()
+                #timepause = runtime - expClock.getTime()
+                #ESQ.runexp(None,timer,win,[writer,writera],resdict,None,None,None,movietype=trialname) 
+                #text_inst.draw()
                 #win.flip()
-                mov.play()
+                #mov.draw()
+                #writera.writerow({'Timepoint':'EXPERIMENT DATA:','Time':'Experience Sampling Questions'})
+                #writera.writerow({'Timepoint':'Start Time','Time':timer.getTime()})
+                #resdict['Assoc Task'] = None
+                #resdict['Timepoint'], resdict['Time'],resdict['Auxillary Data'] = 'Movie prompt {} {}'.format(en,videoname), timer.getTime(), timelimitpercent
+                #writer.writerow(resdict)
+                #resdict['Timepoint'], resdict['Time'],resdict['Auxillary Data'] = None,None,None
+                #win.flip()
+                #mov.play()
                 resettime = True
                 
                 #runtime = timepause
@@ -306,10 +314,12 @@ Remember, an event boundary occurs where you perceive one event finishes and ano
                 resettime = False
             mov.draw()
             win.flip()
-            keys = event.getKeys(timeStamped=expClock)
+            keys = event.getKeys(timeStamped=movieClock)
             for key, timestamp in keys:
                 if key == 'space':
-                    boundary_times.append(round(timestamp, 3))
+                    with open(event_seg_path, "a", newline="") as f:
+                        writer = csv.writer(f)
+                        writer.writerow([participant_id, videoname, timestamp])
         else:
             break
 
@@ -320,69 +330,71 @@ Remember, an event boundary occurs where you perceive one event finishes and ano
         responses_data = present_comprehension_question(win, stim, 1, participant_id, videoname, responses_data)
         responses_data = present_comprehension_question(win, stim, 2, participant_id, videoname, responses_data)
         responses_data = present_comprehension_question(win, stim, 3, participant_id, videoname, responses_data)
-        #responses_data = present_comprehension_question(win, stim, 4, participant_id, videoname, responses_data)
+        responses_data = present_comprehension_question(win, stim, 4, participant_id, videoname, responses_data)
         save_comp_csv(responses_data, participant_id, clipname, seed)
-        seen_data = present_seen_question(win, stim, 13, participant_id, videoname, seen_data)
+        seen_data = present_seen_question(win, stim, 17, participant_id, videoname, seen_data)
         save_seen_csv(seen_data, participant_id, clipname, seed)
-        
+        #core.quit() #use this to debug
 
     if filename[1] == "resources/Movie_Task/videos/friends2.mp4":
         base_name = os.path.splitext(os.path.basename(filename[1]))[0]
         clipname = base_name.split('.')[0]
-        responses_data = present_comprehension_question(win, stim, 4, participant_id, videoname, responses_data)
         responses_data = present_comprehension_question(win, stim, 5, participant_id, videoname, responses_data)
         responses_data = present_comprehension_question(win, stim, 6, participant_id, videoname, responses_data)
-        #responses_data = present_comprehension_question(win, stim, 8, participant_id, videoname, responses_data)
+        responses_data = present_comprehension_question(win, stim, 7, participant_id, videoname, responses_data)
+        responses_data = present_comprehension_question(win, stim, 8, participant_id, videoname, responses_data)
         save_comp_csv(responses_data, participant_id, clipname, seed)
-        seen_data = present_seen_question(win, stim, 14, participant_id, videoname, seen_data)
+        seen_data = present_seen_question(win, stim, 18, participant_id, videoname, seen_data)
         save_seen_csv(seen_data, participant_id, clipname, seed)
     
     if filename[1] == "resources/Movie_Task/videos/friends3.mp4":
         base_name = os.path.splitext(os.path.basename(filename[1]))[0]
         clipname = base_name.split('.')[0]
-        responses_data = present_comprehension_question(win, stim, 7, participant_id, videoname, responses_data)
-        responses_data = present_comprehension_question(win, stim, 8, participant_id, videoname, responses_data)
         responses_data = present_comprehension_question(win, stim, 9, participant_id, videoname, responses_data)
-        #responses_data = present_comprehension_question(win, stim, 12, participant_id, videoname, responses_data)
+        responses_data = present_comprehension_question(win, stim, 10, participant_id, videoname, responses_data)
+        responses_data = present_comprehension_question(win, stim, 11, participant_id, videoname, responses_data)
+        responses_data = present_comprehension_question(win, stim, 12, participant_id, videoname, responses_data)
         save_comp_csv(responses_data, participant_id, clipname, seed)
-        seen_data = present_seen_question(win, stim, 15, participant_id, videoname, seen_data)
+        seen_data = present_seen_question(win, stim, 19, participant_id, videoname, seen_data)
         save_seen_csv(seen_data, participant_id, clipname, seed)
     
     if filename[1] == "resources/Movie_Task/videos/friends4.mp4":
         base_name = os.path.splitext(os.path.basename(filename[1]))[0]
         clipname = base_name.split('.')[0]
-        responses_data = present_comprehension_question(win, stim, 10, participant_id, videoname, responses_data)
-        responses_data = present_comprehension_question(win, stim, 11, participant_id, videoname, responses_data)
-        responses_data = present_comprehension_question(win, stim, 12, participant_id, videoname, responses_data)
-        #responses_data = present_comprehension_question(win, stim, 16, participant_id, videoname, responses_data)
+        responses_data = present_comprehension_question(win, stim, 13, participant_id, videoname, responses_data)
+        responses_data = present_comprehension_question(win, stim, 14, participant_id, videoname, responses_data)
+        responses_data = present_comprehension_question(win, stim, 15, participant_id, videoname, responses_data)
+        responses_data = present_comprehension_question(win, stim, 16, participant_id, videoname, responses_data)
         save_comp_csv(responses_data, participant_id, clipname, seed)
-        seen_data = present_seen_question(win, stim, 16, participant_id, videoname, seen_data)
+        seen_data = present_seen_question(win, stim, 20, participant_id, videoname, seen_data)
         save_seen_csv(seen_data, participant_id, clipname, seed)
     
     # Save event segmentation data
     event_seg_dir = os.path.join(os.path.dirname(os.path.abspath(__file__)), "..", "event_seg")
     os.makedirs(event_seg_dir, exist_ok=True)
 
-    if filename[1] == "resources/Movie_Task/videos/test1.mp4":
-        base_name = os.path.splitext(os.path.basename(filename[1]))[0]
-        clipname = base_name.split('.')[0]
+    #if filename[1] == "resources/Movie_Task/videos/friends1.mp4":
+        #base_name = os.path.splitext(os.path.basename(filename[1]))[0]
+        #clipname = base_name.split('.')[0]
         # Save event boundary data
-        save_eventseg_csv(boundary_times, participant_id, clipname, seed)
+        #save_eventseg_csv(boundary_times, participant_id, clipname, seed)
 
-    if filename[1] == "resources/Movie_Task/videos/test2.mp4":
-        base_name = os.path.splitext(os.path.basename(filename[1]))[0]
-        clipname = base_name.split('.')[0]
-        save_eventseg_csv(boundary_times, participant_id, clipname, seed)
+    #if filename[1] == "resources/Movie_Task/videos/friends2.mp4":
+        #base_name = os.path.splitext(os.path.basename(filename[1]))[0]
+        #clipname = base_name.split('.')[0]
+        #save_eventseg_csv(boundary_times, participant_id, clipname, seed)
 
-    if filename[1] == "resources/Movie_Task/videos/friends3.mp4":
-        base_name = os.path.splitext(os.path.basename(filename[1]))[0]
-        clipname = base_name.split('.')[0]
-        save_eventseg_csv(boundary_times, participant_id, clipname, seed)
+    #if filename[1] == "resources/Movie_Task/videos/friends3.mp4":
+        #base_name = os.path.splitext(os.path.basename(filename[1]))[0]
+        #clipname = base_name.split('.')[0]
+        #save_eventseg_csv(boundary_times, participant_id, clipname, seed)
 
-    if filename[1] == "resources/Movie_Task/videos/friends4.mp4":
-        base_name = os.path.splitext(os.path.basename(filename[1]))[0]
-        clipname = base_name.split('.')[0]
-        save_eventseg_csv(boundary_times, participant_id, clipname, seed)
+    #if filename[1] == "resources/Movie_Task/videos/friends4.mp4":
+        #base_name = os.path.splitext(os.path.basename(filename[1]))[0]
+        #clipname = base_name.split('.')[0]
+        #save_eventseg_csv(boundary_times, participant_id, clipname, seed)
+ 
+
 
 
 
@@ -438,6 +450,7 @@ Remember, an event boundary occurs where you perceive one event finishes and ano
         practice_mov = visual.MovieStim3(win, practice_video_path, size=(1920, 1080), flipVert=False, flipHoriz=False, loop=False)
         clock = core.Clock()
         boundaries = []
+        
 
         while practice_mov.status != visual.FINISHED:
             practice_mov.draw()
@@ -478,7 +491,7 @@ Please alert the experimenter.
                         break              # restart the practice loop
                     elif 'q' in keys:
                         core.quit()
-                    core.wait(1)  # prevent high CPU usage
+                    core.wait(1) 
 
 
 
