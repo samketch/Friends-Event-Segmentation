@@ -425,7 +425,7 @@ if __name__ == "__main__":
         event.waitKeys(keyList=['return'])
         tbt.win.flip()
 
-        #eventSegmentation.run_practice(tbt.win) #to run the practice before the battery
+        eventSegmentation.run_practice(tbt.win) #to run the practice before the battery
         
         tbt.run_battery()
         print("Success")
