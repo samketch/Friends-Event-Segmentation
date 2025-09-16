@@ -159,6 +159,8 @@ Remember, an event boundary occurs where you perceive one event finishes and ano
     resdict['Timepoint'], resdict['Time'], resdict['Auxillary Data'] = None, None, None
     
     mov = visual.MovieStim3(win, trialvideo, size=(1920, 1080), loop=False)
+    mov.draw()
+    win.flip()
     movieClock = core.Clock()
 
     # Create boundary CSV for this run
