@@ -22,6 +22,10 @@ def merge_eventseg(folder: str, output_file: str) -> None:
 
     new_data = pd.concat(all_dfs, ignore_index=True)
 
+    # Round BoundaryTime(s) to 3 decimal places if present
+    if "BoundaryTime(s)" in new_data.columns:
+        new_data["BoundaryTime(s)"] = new_data["BoundaryTime(s)"].round(3)
+
     # If master_data already exists, append only new rows
     if os.path.exists(output_file):
         print(f"🔎 Existing master file found at {output_file}, appending new rows...")
