@@ -1,0 +1,20 @@
+METADATA:
+Experiment Seed,Subject
+9766365,010
+Index,Field Name,Value
+0,Experiment Seed,9766365
+1,Subject,010
+Time after setup,20.207858599998872
+Timepoint,Time,Is_correct,Experience Sampling Question,Experience Sampling Response,Task,Task Iteration,Participant ID,Response_Key,Auxillary Data,Assoc Task
+EXPERIMENT DATA:,Event Segmentation Task
+Start Time,247.45421250000072
+Movie Task Start,247.45425130000513,,,,Event Segmentation Task,1,010,,,
+Movie Start,292.72324740000477,,,,Event Segmentation Task,1,010,,friends1.mp4,
+EXPERIMENT DATA:,Event Segmentation Task
+Start Time,1656.971139100002
+Movie Task Start,1656.9711824999977,,,,Event Segmentation Task,1,010,,,
+Movie Start,1678.2790924,,,,Event Segmentation Task,1,010,,friends2.mp4,
+EXPERIMENT DATA:,Event Segmentation Task
+Start Time,3040.873993400004
+Movie Task Start,3040.8740555999975,,,,Event Segmentation Task,1,010,,,
+Movie Start,3047.109428099997,,,,Event Segmentation Task,1,010,,friends3.mp4,
