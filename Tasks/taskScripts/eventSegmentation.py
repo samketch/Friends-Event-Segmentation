@@ -12,6 +12,8 @@ import random
 from datetime import datetime
 from psychopy import prefs
 
+from psychopy.constants import NOT_STARTED, STARTED, FINISHED
+
 ###################################################################################################
 
 def save_comp_csv(responses_data, participant_id, clipname, seed):
@@ -159,9 +161,14 @@ Remember, an event boundary occurs where you perceive one event finishes and ano
     resdict['Timepoint'], resdict['Time'], resdict['Auxillary Data'] = None, None, None
     
     mov = visual.MovieStim3(win, trialvideo, size=(1920, 1080), loop=False)
-    mov.draw()
-    win.flip()
     movieClock = core.Clock()
+
+    while mov.status != STARTED:
+        mov.draw()
+        win.flip()
+    
+    movieClock.reset()
+    
 
     # Create boundary CSV for this run
     event_seg_path = os.path.join(
@@ -171,7 +178,7 @@ Remember, an event boundary occurs where you perceive one event finishes and ano
     with open(event_seg_path, "w", newline="") as f:
         writer_csv = csv.writer(f)
         writer_csv.writerow(["ParticipantID", "VideoName", "BoundaryTime(s)"])
-
+    
     # Movie loop
     while mov.status != visual.FINISHED:
         mov.draw()

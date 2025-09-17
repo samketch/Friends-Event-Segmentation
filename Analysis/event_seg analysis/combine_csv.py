@@ -2,7 +2,7 @@ import os
 import pandas as pd
 
 # Folder containing all corrected event segmentation CSVs
-EVENT_SEG_FOLDER = r"C:\Users\Smallwood Lab\friends-event-segmentation\Tasks\event_seg"
+EVENT_SEG_FOLDER = r"C:\Users\Smallwood Lab\friends-event-segmentation\Tasks\event_seg\Processed_data"
 
 # Output path for the master file
 OUTPUT_FILE = r"C:\Users\Smallwood Lab\friends-event-segmentation\Analysis\event_seg analysis\master_data.csv"
