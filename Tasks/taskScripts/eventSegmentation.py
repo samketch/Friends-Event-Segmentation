@@ -185,6 +185,7 @@ Remember, an event boundary occurs where you perceive one event finishes and ano
         win.flip()
         keys = event.getKeys(timeStamped=movieClock)
         for key, timestamp in keys:
+            print(f"[DEBUG] Key: {key}, Timestamp: {timestamp}, Movie status: {mov.status}, Clock time: {movieClock.getTime()}") #debug
             if key == 'space':
                 with open(event_seg_path, "a", newline="") as f:
                     writer_csv = csv.writer(f)

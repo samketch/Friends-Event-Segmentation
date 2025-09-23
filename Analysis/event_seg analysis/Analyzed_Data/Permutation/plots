@@ -1,0 +1,39 @@
+import os
+import pandas as pd
+import matplotlib.pyplot as plt
+
+# ==========================
+# Configuration
+# ==========================
+base_path   = r"C:\Users\Smallwood Lab\friends-event-segmentation\Analysis\event_seg analysis\Permutation\Results"
+graphs_path = os.path.join(base_path, "plots_agreement_curves")
+videos      = ["friends1.mp4", "friends2.mp4", "friends3.mp4"]
+
+# create output folder if it does not exist
+os.makedirs(graphs_path, exist_ok=True)
+
+# ==========================
+# Plot each agreement curve
+# ==========================
+for video in videos:
+    curve_file = os.path.join(base_path, f"{video}_agreement_curve.csv")
+    if not os.path.exists(curve_file):
+        print(f"Missing curve file for {video}: {curve_file}")
+        continue
+
+    df = pd.read_csv(curve_file)
+
+    plt.figure(figsize=(12, 4))
+    plt.plot(df["Second"], df["Agreement"], color="steelblue")
+    plt.xlabel("Time (s)")
+    plt.ylabel("Participants in agreement")
+    plt.title(f"Agreement curve – {video}")
+    plt.grid(True, alpha=0.4)
+    plt.tight_layout()
+
+    out_file = os.path.join(graphs_path, f"{video}_agreement_curve.png")
+    plt.savefig(out_file, dpi=150)
+    plt.close()
+    print(f"Saved: {out_file}")
+
+print("\n✅ All agreement curves saved.")
