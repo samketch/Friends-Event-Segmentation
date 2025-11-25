@@ -1,0 +1,2 @@
+setwd('C:\Users\Smallwood Lab\friends-event-segmentation\Analysis\event_seg analysis\Analyzed_Data\RSA\Within_Across_Bootstrap')
+data<-("fakeboundary_summary.csv")
