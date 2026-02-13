@@ -1,0 +1,4 @@
+pygame 2.1.2 (SDL 2.0.18, Python 3.6.13)
+Hello from the pygame community. https://www.pygame.org/contribute.html
+[8693419, '6060606']
+4.9117 	WARNING 	Monitor specification not found. Creating a temporary one...

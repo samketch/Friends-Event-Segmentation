@@ -10,7 +10,7 @@ import csv
 import pandas as pd
 
 import yaml
-from taskScripts import ESQ, movieTask, eventSegmentation
+from taskScripts import ESQ, movieTask, eventSegmentation, themeWords
 import os
 import random
 os.chdir(os.path.dirname(os.path.realpath(__file__)))
@@ -304,6 +304,10 @@ class taskgroup(taskbattery,metadatacollection):
                                 #taskbattery.ESQtask.run()
                         
         def end(self):
+                themeWords.show_instructions(win=taskbattery.win)
+                responses = themeWords.run_theme_words(win=taskbattery.win, participant_id=metacoll.INFO['Subject'], max_words=10)
+                themeWords.save_theme_words(responses,participant_id=metacoll.INFO['Subject'],label="friends_fmri")
+
                 text_inst = visual.TextStim(win=taskbattery.win, name='text_1',
                         text='This is the end of the experiment. \n \n Please inform the attending researcher you have completed testing. \n \n Thank you for participating!',
                         font='Open Sans',
@@ -390,18 +394,18 @@ if __name__ == "__main__":
         #random_probe_version = random.randint(1,10)
 
         # Defining each task as a task object
-        movieTask1 = task(eventSegmentation, datafile, ["resources/Movie_Task/csv/probetimes_orders.csv","resources/Movie_Task/videos/friends1.mp4"],"Event Segmentation Task",  metacoll.sbINFO.data, int(metacoll.INFO['Block Runtime']),'resources//Movie_Task//csv//sorted_filmList.csv', 1,1)
-        movieTask2 = task(eventSegmentation, datafile, ["resources/Movie_Task/csv/probetimes_orders.csv","resources/Movie_Task/videos/friends2.mp4"],"Event Segmentation Task",  metacoll.sbINFO.data, int(metacoll.INFO['Block Runtime']),'resources//Movie_Task//csv//sorted_filmList.csv', 2,1)
-        movieTask3 = task(eventSegmentation, datafile, ["resources/Movie_Task/csv/probetimes_orders.csv","resources/Movie_Task/videos/friends3.mp4"],"Event Segmentation Task",  metacoll.sbINFO.data, int(metacoll.INFO['Block Runtime']),'resources//Movie_Task//csv//sorted_filmList.csv', 3,1)
+        movieTask1 = task(eventSegmentation, datafile, ["resources/Movie_Task/csv/probetimes_orders.csv","resources/Movie_Task/videos/friends1_fmri.mp4"],"Event Segmentation Task",  metacoll.sbINFO.data, int(metacoll.INFO['Block Runtime']),'resources//Movie_Task//csv//sorted_filmList.csv', 1,1)
+        movieTask2 = task(eventSegmentation, datafile, ["resources/Movie_Task/csv/probetimes_orders.csv","resources/Movie_Task/videos/friends2_fmri.mp4"],"Event Segmentation Task",  metacoll.sbINFO.data, int(metacoll.INFO['Block Runtime']),'resources//Movie_Task//csv//sorted_filmList.csv', 2,1)
+        movieTask3 = task(eventSegmentation, datafile, ["resources/Movie_Task/csv/probetimes_orders.csv","resources/Movie_Task/videos/friends3_fmri.mp4"],"Event Segmentation Task",  metacoll.sbINFO.data, int(metacoll.INFO['Block Runtime']),'resources//Movie_Task//csv//sorted_filmList.csv', 3,1)
         #movieTask4 = task(eventSegmentation, datafile, ["resources/Movie_Task/csv/probetimes_orders.csv","resources/Movie_Task/videos/friends4.mp4"],"Event Segmentation Task",  metacoll.sbINFO.data, int(metacoll.INFO['Block Runtime']),'resources//Movie_Task//csv//sorted_filmList.csv', 4,1)
-
-        #moviegroup = [movieTask1,movieTask2,movieTask3]
-
+  
         moviegroup = [movieTask1, movieTask2, movieTask3]
+
         #random.shuffle(moviegroup) #just trying to shuffle the video clips 
         
         movie_main = taskgroup([moviegroup],"resources/group_inst/movie_main.txt")
 
+        
 
         fulltasklist = [movie_main]
         
@@ -425,7 +429,11 @@ if __name__ == "__main__":
         event.waitKeys(keyList=['return'])
         tbt.win.flip()
 
+        
+
+
         eventSegmentation.run_practice(tbt.win) #to run the practice before the battery
         
         tbt.run_battery()
+        
         print("Success")

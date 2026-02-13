@@ -11,6 +11,7 @@ import csv
 import random
 from datetime import datetime
 from psychopy import prefs
+from taskScripts import themeWords
 
 from psychopy.constants import NOT_STARTED, STARTED, FINISHED
 
@@ -191,7 +192,7 @@ Remember, an event boundary occurs where you perceive one event finishes and ano
                     writer_csv = csv.writer(f)
                     writer_csv.writerow([participant_id, videoname, round(timestamp, 3)])
 
-    if filename[1] == "resources/Movie_Task/videos/friends1.mp4":
+    if filename[1] == "resources/Movie_Task/videos/friends1_fmri.mp4":
         base_name = os.path.splitext(os.path.basename(filename[1]))[0]
         clipname = base_name.split('.')[0]
         responses_data = present_comprehension_question(win, stim, 1, participant_id, videoname, responses_data)
@@ -203,7 +204,7 @@ Remember, an event boundary occurs where you perceive one event finishes and ano
         save_seen_csv(seen_data, participant_id, clipname, seed)
         #core.quit() #use this to debug
 
-    if filename[1] == "resources/Movie_Task/videos/friends2.mp4":
+    if filename[1] == "resources/Movie_Task/videos/friends2_fmri.mp4":
         base_name = os.path.splitext(os.path.basename(filename[1]))[0]
         clipname = base_name.split('.')[0]
         responses_data = present_comprehension_question(win, stim, 5, participant_id, videoname, responses_data)
@@ -214,7 +215,7 @@ Remember, an event boundary occurs where you perceive one event finishes and ano
         seen_data = present_seen_question(win, stim, 18, participant_id, videoname, seen_data)
         save_seen_csv(seen_data, participant_id, clipname, seed)
     
-    if filename[1] == "resources/Movie_Task/videos/friends3.mp4":
+    if filename[1] == "resources/Movie_Task/videos/friends3_fmri.mp4":
         base_name = os.path.splitext(os.path.basename(filename[1]))[0]
         clipname = base_name.split('.')[0]
         responses_data = present_comprehension_question(win, stim, 9, participant_id, videoname, responses_data)
@@ -224,18 +225,12 @@ Remember, an event boundary occurs where you perceive one event finishes and ano
         save_comp_csv(responses_data, participant_id, clipname, seed)
         seen_data = present_seen_question(win, stim, 19, participant_id, videoname, seen_data)
         save_seen_csv(seen_data, participant_id, clipname, seed)
+
     
-    if filename[1] == "resources/Movie_Task/videos/friends4.mp4":
+    if filename[1] == "resources/Movie_Task/videos/practice_clip.mp4":
         base_name = os.path.splitext(os.path.basename(filename[1]))[0]
         clipname = base_name.split('.')[0]
-        responses_data = present_comprehension_question(win, stim, 13, participant_id, videoname, responses_data)
-        responses_data = present_comprehension_question(win, stim, 14, participant_id, videoname, responses_data)
-        responses_data = present_comprehension_question(win, stim, 15, participant_id, videoname, responses_data)
-        responses_data = present_comprehension_question(win, stim, 16, participant_id, videoname, responses_data)
-        save_comp_csv(responses_data, participant_id, clipname, seed)
-        seen_data = present_seen_question(win, stim, 20, participant_id, videoname, seen_data)
-        save_seen_csv(seen_data, participant_id, clipname, seed)
-
+        
     return trialname
 
 def run_practice(win):

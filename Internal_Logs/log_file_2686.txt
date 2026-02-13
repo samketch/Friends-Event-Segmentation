@@ -1,0 +1,12 @@
+pygame 2.1.2 (SDL 2.0.18, Python 3.6.13)
+Hello from the pygame community. https://www.pygame.org/contribute.html
+[8145040, '56565656']
+Now initializing Event Segmentation Task
+Now setting up Event Segmentation Task
+Now running Event Segmentation Task
+[DEBUG] Key: space, Timestamp: 3.2216457000467926, Movie status: 1, Clock time: 3.2352404999546707
+[DEBUG] Key: space, Timestamp: 3.404730699956417, Movie status: 1, Clock time: 3.4051417999435216
+[DEBUG] Key: space, Timestamp: 3.551964999991469, Movie status: 1, Clock time: 3.552077400032431
+6.0161 	WARNING 	Monitor specification not found. Creating a temporary one...
+10.6515 	WARNING 	Speech-to-text recognition module not available (use command `pip install SpeechRecognition` to get it. Transcription will be unavailable.
+10.6946 	WARNING 	We strongly recommend you activate the PTB sound engine in PsychoPy prefs as the preferred audio engine. Its timing is vastly superior. Your prefs are currently set to use ['sounddevice', 'pyo', 'pygame'] (in that order).

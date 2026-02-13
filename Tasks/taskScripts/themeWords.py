@@ -1,5 +1,5 @@
 # theme_word_generation_task.py
-# PsychoPy equivalent of Lab.js "enter words, press Enter each time, press 0 when done"
+# PsychoPy equivalent of Lab.js "enter a word, press Enter after each word"
 
 from psychopy import visual, event, core
 import os, csv
@@ -12,11 +12,9 @@ SAVE_DIR = os.path.join(current_directory, "..", "theme_words_data")
 def show_instructions(win):
     page1 = (
         "Theme Word Generation\n\n"
-        "Please read the following instructions carefully.\n"
-        "You will be asked to freely generate up to 10 words that best describe the central themes\n"
-        "and ideas of the video you just viewed.\n\n"
-        "Enter ONE word at a time and press ENTER to submit.\n"
-        "When you are finished (even if you submitted fewer than 10), press 0.\n\n"
+        "Please read the following instructions carefully.\n\n"
+        "You will be asked to freely generate up to 10 words that best describe the central themes and ideas of the episodes you just viewed.\n\n"
+        "Enter ONE word at a time and press ENTER to submit.\n\n"
         "Press ENTER to start."
     )
 
@@ -43,7 +41,7 @@ def run_theme_words(win, participant_id, max_words=10):
     # UI elements
     prompt_text = visual.TextStim(
         win,
-        text='Type a theme word and press Enter.\nPress "0" when finished.',
+        text='Type a theme word and press Enter.',
         height=0.05,
         color="gray",
         pos=(0, 0.15)
@@ -88,7 +86,7 @@ def run_theme_words(win, participant_id, max_words=10):
             break
 
         # Draw
-        counter_text.text = f"{len(responses)}/{max_words} submitted"
+        counter_text.text = f"{len(responses)}/{max_words}"
         input_text.text = typed_word
 
         prompt_text.draw()
