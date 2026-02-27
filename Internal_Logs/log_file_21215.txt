@@ -1,0 +1,90 @@
+pygame 2.1.2 (SDL 2.0.18, Python 3.6.13)
+Hello from the pygame community. https://www.pygame.org/contribute.html
+[1094617, '026']
+Now initializing Event Segmentation Task
+Now setting up Event Segmentation Task
+Now running Event Segmentation Task
+[DEBUG] Key: return, Timestamp: -0.010884799994528294, Movie status: 1, Clock time: 0.016734299948439002
+[DEBUG] Key: space, Timestamp: 154.57453029998578, Movie status: 1, Clock time: 154.57465570000932
+[DEBUG] Key: space, Timestamp: 179.6942102999892, Movie status: 1, Clock time: 179.69433520000894
+[DEBUG] Key: space, Timestamp: 238.17423190001864, Movie status: 1, Clock time: 238.1743607999524
+[DEBUG] Key: space, Timestamp: 272.75128580001183, Movie status: 1, Clock time: 272.7514167999616
+[DEBUG] Key: space, Timestamp: 639.6276808999246, Movie status: 1, Clock time: 639.6278110999847
+[DEBUG] Key: space, Timestamp: 649.6201233000029, Movie status: 1, Clock time: 649.6206883999985
+[DEBUG] Key: space, Timestamp: 691.3858459999319, Movie status: 1, Clock time: 691.3859630000079
+[DEBUG] Key: space, Timestamp: 756.1386363999918, Movie status: 1, Clock time: 756.139019299997
+[DEBUG] Key: space, Timestamp: 807.1144209000049, Movie status: 1, Clock time: 807.1279080999084
+[DEBUG] Key: space, Timestamp: 846.7464475999586, Movie status: 1, Clock time: 846.7594035000075
+[DEBUG] Key: space, Timestamp: 862.6563320999267, Movie status: 1, Clock time: 862.6564535999205
+[DEBUG] Key: space, Timestamp: 873.1318431999534, Movie status: 1, Clock time: 873.1323921999428
+[DEBUG] Key: space, Timestamp: 889.9796579999384, Movie status: 1, Clock time: 889.9801015999401
+[DEBUG] Key: space, Timestamp: 922.2870195999276, Movie status: 1, Clock time: 922.2871392999077
+[DEBUG] Key: space, Timestamp: 959.9662427000003, Movie status: 1, Clock time: 959.9663464999758
+[DEBUG] Key: space, Timestamp: 997.1142509999918, Movie status: 1, Clock time: 997.1299908999354
+[DEBUG] Key: space, Timestamp: 1019.4989034999162, Movie status: 1, Clock time: 1019.4992917999625
+[DEBUG] Key: space, Timestamp: 1070.8422943999758, Movie status: 1, Clock time: 1070.855376399937
+[DEBUG] Key: space, Timestamp: 1083.7997361000162, Movie status: 1, Clock time: 1083.8001419999637
+[DEBUG] Key: space, Timestamp: 1088.586071299971, Movie status: 1, Clock time: 1088.5861888999352
+[DEBUG] Key: space, Timestamp: 1119.1645380000118, Movie status: 1, Clock time: 1119.1778946999693
+[DEBUG] Key: space, Timestamp: 1136.742367299972, Movie status: 1, Clock time: 1136.7427497999743
+[DEBUG] Key: space, Timestamp: 1140.9795329999179, Movie status: 1, Clock time: 1140.9799480999354
+[DEBUG] Key: space, Timestamp: 1150.4349023000104, Movie status: 1, Clock time: 1150.4350912999362
+[DEBUG] Key: space, Timestamp: 1254.7523093000054, Movie status: 1, Clock time: 1254.752452399931
+[DEBUG] Key: space, Timestamp: 1264.9099720999366, Movie status: 1, Clock time: 1264.9100789999356
+[DEBUG] Key: space, Timestamp: 1317.0530380000127, Movie status: 1, Clock time: 1317.05316209991
+[DEBUG] Key: space, Timestamp: 1351.5471803999972, Movie status: 1, Clock time: 1351.561961599975
+Now initializing Event Segmentation Task
+Now setting up Event Segmentation Task
+Now running Event Segmentation Task
+[DEBUG] Key: return, Timestamp: -0.014654100057668984, Movie status: 1, Clock time: 0.01672849990427494
+[DEBUG] Key: space, Timestamp: 55.99589299992658, Movie status: 1, Clock time: 55.9960349999601
+[DEBUG] Key: space, Timestamp: 115.72710289992392, Movie status: 1, Clock time: 115.72748499992304
+[DEBUG] Key: space, Timestamp: 182.1841584999347, Movie status: 1, Clock time: 182.19638320000377
+[DEBUG] Key: space, Timestamp: 202.11180009995587, Movie status: 1, Clock time: 202.1119042999344
+[DEBUG] Key: space, Timestamp: 257.496086500003, Movie status: 1, Clock time: 257.50627729995176
+[DEBUG] Key: space, Timestamp: 276.8266323999269, Movie status: 1, Clock time: 276.8389842999168
+[DEBUG] Key: space, Timestamp: 344.74376659991685, Movie status: 1, Clock time: 344.7446580999531
+[DEBUG] Key: space, Timestamp: 362.0566605000058, Movie status: 1, Clock time: 362.0567812999943
+[DEBUG] Key: space, Timestamp: 422.7884479999775, Movie status: 1, Clock time: 422.78857799991965
+[DEBUG] Key: space, Timestamp: 461.46883859997615, Movie status: 1, Clock time: 461.4689429999562
+[DEBUG] Key: space, Timestamp: 500.6837541999994, Movie status: 1, Clock time: 500.68387279997114
+[DEBUG] Key: space, Timestamp: 544.8730167999165, Movie status: 1, Clock time: 544.8857695999322
+[DEBUG] Key: space, Timestamp: 562.7327797999606, Movie status: 1, Clock time: 562.732887799968
+[DEBUG] Key: space, Timestamp: 612.3736421999056, Movie status: 1, Clock time: 612.3740119999275
+[DEBUG] Key: space, Timestamp: 647.2001827999484, Movie status: 1, Clock time: 647.2002936999779
+[DEBUG] Key: space, Timestamp: 673.1934911999851, Movie status: 1, Clock time: 673.2041465999791
+[DEBUG] Key: space, Timestamp: 755.0535571000073, Movie status: 1, Clock time: 755.0536963999039
+[DEBUG] Key: space, Timestamp: 772.716962800012, Movie status: 1, Clock time: 772.7170684000012
+[DEBUG] Key: space, Timestamp: 845.8926510999445, Movie status: 1, Clock time: 845.8927696999162
+[DEBUG] Key: space, Timestamp: 918.4876908999868, Movie status: 1, Clock time: 918.5004514999455
+[DEBUG] Key: space, Timestamp: 943.8532677999465, Movie status: 1, Clock time: 943.8534095999785
+[DEBUG] Key: space, Timestamp: 977.4812855999917, Movie status: 1, Clock time: 977.4816439999267
+[DEBUG] Key: space, Timestamp: 1003.319760399987, Movie status: 1, Clock time: 1003.3348536000121
+[DEBUG] Key: space, Timestamp: 1060.234589300002, Movie status: 1, Clock time: 1060.2466357999947
+[DEBUG] Key: space, Timestamp: 1090.370285699959, Movie status: 1, Clock time: 1090.3703926999588
+[DEBUG] Key: space, Timestamp: 1208.9356623999774, Movie status: 1, Clock time: 1208.9486579999793
+[DEBUG] Key: space, Timestamp: 1214.703063699999, Movie status: 1, Clock time: 1214.7031700999942
+[DEBUG] Key: space, Timestamp: 1234.0895501999184, Movie status: 1, Clock time: 1234.102391699911
+[DEBUG] Key: space, Timestamp: 1268.1990852999734, Movie status: 1, Clock time: 1268.2127195999492
+[DEBUG] Key: space, Timestamp: 1336.2338676999789, Movie status: 1, Clock time: 1336.2339921999956
+[DEBUG] Key: space, Timestamp: 1345.373890799936, Movie status: 1, Clock time: 1345.3739987999434
+[DEBUG] Key: space, Timestamp: 1386.508333100006, Movie status: 1, Clock time: 1386.5088069000049
+Now initializing Event Segmentation Task
+Now setting up Event Segmentation Task
+Now running Event Segmentation Task
+[DEBUG] Key: return, Timestamp: -0.007926900056190789, Movie status: 1, Clock time: 0.01674319989979267
+[DEBUG] Key: space, Timestamp: 17.59777489991393, Movie status: 1, Clock time: 17.597890099976212
+[DEBUG] Key: space, Timestamp: 32.17717189993709, Movie status: 1, Clock time: 32.177299099974334
+[DEBUG] Key: space, Timestamp: 58.246896199998446, Movie status: 1, Clock time: 58.247004699893296
+[DEBUG] Key: space, Timestamp: 83.1170482999878, Movie status: 1, Clock time: 83.11716109991539
+[DEBUG] Key: space, Timestamp: 146.98623349994887, Movie status: 1, Clock time: 146.98658679996151
+[DEBUG] Key: space, Timestamp: 184.49758179998025, Movie status: 1, Clock time: 184.49772949994076
+[DEBUG] Key: space, Timestamp: 220.5769433999667, Movie status: 1, Clock time: 220.57707619993016
+[DEBUG] Key: space, Timestamp: 250.4169485999737, Movie status: 1, Clock time: 250.4170561999781
+[DEBUG] Key: space, Timestamp: 267.66411749995314, Movie status: 1, Clock time: 267.6642261999659
+[DEBUG] Key: space, Timestamp: 325.1772636999376, Movie status: 1, Clock time: 325.17754379997496
+[DEBUG] Key: space, Timestamp: 405.37474189989734, Movie status: 1, Clock time: 405.37488649995066
+[DEBUG] Key: space, Timestamp: 431.477819899912, Movie status: 1, Clock time: 431.47795279999264
+[DEBUG] Key: space, Timestamp: 478.2654111000011, Movie status: 1, Clock time: 478.2656484999461
+[DEBUG] Key: space, Timestamp: 507.806238799938, Movie status: 1, Clock time: 507.8063653999707
+[DEBUG] Key: space, Timestamp: 571.5565593999345, Movie status: 1, Clock time: 571.5566732999869
