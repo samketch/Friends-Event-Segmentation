@@ -1,0 +1,5 @@
+idno,videoname,qnumber,response,correctness
+013,friends3_fmri.mp4,9,4,correct
+013,friends3_fmri.mp4,10,2,correct
+013,friends3_fmri.mp4,11,1,incorrect
+013,friends3_fmri.mp4,12,3,incorrect
